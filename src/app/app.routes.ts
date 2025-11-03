@@ -4,6 +4,7 @@ import { MenuComponent } from './components/commons/menu/menu.component';
 import { LoginComponent } from './components/commons/login/login.component';
 
 export const routes: Routes = [
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
 
     {
