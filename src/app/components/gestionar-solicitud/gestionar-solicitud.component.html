@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Gestionar Solicitud</h2>
+
+<mat-dialog-content [formGroup]="historialForm" class="dialog-content"><br>
+    <div class="form-row">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Solicitud</mat-label>
+            <input matInput type="text" formControlName="titulo" />
+        </mat-form-field>
+    </div>
+
+    <div class="form-row">
+        <mat-form-field>
+            <mat-label>Seleccione una opción</mat-label>
+            <mat-select formControlName="idEstado" disableRipple>
+                <mat-option *ngFor="let opcion of opcionesEstado" [value]="opcion.value">
+                    {{ opcion.label }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="form-row">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Comentario</mat-label>
+            <textarea matInput rows="3" formControlName="comentario"></textarea>
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button (click)="cancelar()">Cancelar</button>
+    <button mat-flat-button color="primary" (click)="guardar()">Guardar</button>
+</mat-dialog-actions>

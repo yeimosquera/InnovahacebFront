@@ -1,0 +1,45 @@
+<h2 mat-dialog-title>Trazabilidad de la Solicitud</h2>
+
+<mat-dialog-content class="dialog-content">
+    <table mat-table [dataSource]="data" class="mat-elevation-z2 full-width">
+
+        <!-- Usuario -->
+        <ng-container matColumnDef="usuario">
+            <th mat-header-cell *matHeaderCellDef> Usuario </th>
+            <td mat-cell *matCellDef="let item"> {{ item.usuario }} </td>
+        </ng-container>
+
+        <!-- Estado Anterior -->
+        <ng-container matColumnDef="estadoAnterior">
+            <th mat-header-cell *matHeaderCellDef> Estado Anterior </th>
+            <td mat-cell *matCellDef="let item"> {{ item.estadoAnterior }} </td>
+        </ng-container>
+
+        <!-- Estado Nuevo -->
+        <ng-container matColumnDef="estadoNuevo">
+            <th mat-header-cell *matHeaderCellDef> Estado Nuevo </th>
+            <td mat-cell *matCellDef="let item"> {{ item.estadoNuevo }} </td>
+        </ng-container>
+
+        <!-- Comentario -->
+        <ng-container matColumnDef="comentario">
+            <th mat-header-cell *matHeaderCellDef> Comentario </th>
+            <td mat-cell *matCellDef="let item"> {{ item.comentario }} </td>
+        </ng-container>
+
+        <!-- Fecha -->
+        <ng-container matColumnDef="fechaCreacion">
+            <th mat-header-cell *matHeaderCellDef> Fecha </th>
+            <td mat-cell *matCellDef="let item">
+                {{ item.fechaCreacion | date: 'short' }}
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button (click)="cerrar()">Cerrar</button>
+</mat-dialog-actions>

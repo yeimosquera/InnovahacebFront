@@ -1,0 +1,40 @@
+<h2 mat-dialog-title class="dialog-title">
+    <mat-icon color="primary" class="title-icon">note_add</mat-icon>
+    Crear Nueva Solicitud
+</h2>
+
+<mat-dialog-content class="dialog-content" [formGroup]="solicitudForm">
+    <div class="form-grid"><br>
+        <mat-form-field appearance="outline">
+            <mat-label>Título</mat-label>
+            <input matInput formControlName="titulo" placeholder="Ingrese el título" />
+            <mat-error *ngIf="solicitudForm.get('titulo')?.hasError('required')">
+                El título es obligatorio
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput formControlName="descripcion" rows="4"
+                placeholder="Describa brevemente la solicitud"></textarea>
+            <mat-error *ngIf="solicitudForm.get('descripcion')?.hasError('required')">
+                La descripción es obligatoria
+            </mat-error>
+            <mat-error *ngIf="solicitudForm.get('descripcion')?.hasError('minlength')">
+                Mínimo 10 caracteres
+            </mat-error>
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="dialog-actions">
+    <button mat-stroked-button color="warn" (click)="cancelar()">
+        <mat-icon>close</mat-icon>
+        Cancelar
+    </button>
+
+    <button mat-flat-button color="primary" (click)="guardar()" [disabled]="solicitudForm.invalid">
+        <mat-icon>save</mat-icon>
+        Guardar
+    </button>
+</mat-dialog-actions>

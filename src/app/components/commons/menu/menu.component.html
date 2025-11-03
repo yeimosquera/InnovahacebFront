@@ -1,0 +1,50 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+    <!-- ENCABEZADO -->
+    <mat-toolbar class="example-toolbar">
+        <button mat-icon-button (click)="snav.toggle()">
+            <mat-icon style="color: white;">menu</mat-icon>
+        </button>
+
+        <h1 class="example-app-name">InnovaHaceb</h1>
+
+        <span class="spacer"></span>
+
+        <button mat-button class="logout-btn" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            Cerrar sesión
+        </button>
+
+    </mat-toolbar>
+
+    <!-- CONTENEDOR -->
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 70 : 0">
+        <mat-sidenav #snav mode="side" opened class="custom-sidenav" fixedTopGap="70">
+            <!-- OPCIONES DEL MENÚ -->
+            <mat-nav-list>
+                <a mat-list-item routerLink="/bandejas" (click)="mobileQuery.matches ? snav.close() : null">
+                    <mat-icon>inbox</mat-icon>
+                    <span>Bandejas</span>
+                </a>
+
+                <a mat-list-item routerLink="/consulta-solicitud">
+                    <mat-icon>folder_open</mat-icon>
+                    <span>Consulta de Solicitud</span>
+                </a>
+
+                <a mat-list-item routerLink="/lista-tareas" routerLinkActive="active-link">
+                    <mat-icon>description</mat-icon>
+                    <span>Lista de Tareas</span>
+                </a>
+
+                <a mat-list-item routerLink="/mantenimientos">
+                    <mat-icon>build</mat-icon>
+                    <span>Mantenimientos</span>
+                </a>
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

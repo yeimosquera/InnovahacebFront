@@ -1,0 +1,34 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+.dialog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.full-width,
+mat-form-field {
+    width: 100%;
+}
+
+mat-dialog-content {
+    width: 100%;
+    max-width: 600px;
+    /* opcional: ancho máximo del modal */
+}
+
+mat-dialog-actions {
+    padding: 1rem;
+}
+
+.example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+    line-height: 1;
+}

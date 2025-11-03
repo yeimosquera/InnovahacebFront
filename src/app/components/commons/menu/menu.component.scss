@@ -1,0 +1,46 @@
+
+.example-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #003366;
+    color: white;
+    padding: 0 16px;
+}
+
+.example-app-name {
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+
+.logout-btn {
+    color: white !important;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.logout-btn mat-icon {
+    color: white !important;
+}
+
+
+.logo-haceb {
+    height: 40px;
+    margin-left: 16px;
+}
+
+
+.example-toolbar img,
+.example-toolbar button {
+    display: flex;
+    align-items: center;
+}
